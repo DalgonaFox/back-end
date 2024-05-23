@@ -27,7 +27,11 @@ db.connect((error) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) =>{//declarar qual é o caminho da rota escolhida, no caso '/'
-  res.sendFile(__dirname + '/views/login.html')
+  res.sendFile(__dirname + '/login.html')
+});
+// Rota para processar o cadastro
+app.get('/cadastro', (req, res) => {
+  res.sendFile(__dirname + '/cadastro.html')
 });
 
 // Rota para processar o login 
@@ -48,6 +52,18 @@ app.post('/login', (req, res) => {
       } else {
         res.status(401).send('Este usuário não existe');
       }
+    }
+  })
+});
+
+app.post('/cadastro', (req, res) => {
+  const { username, password } = req.body;
+
+  db.query('INSERT INTO user (username, password) values (?, ?);', [username, password], (error) => {
+    if(error){
+      res.status(500).send('Erro ao cadastrar')
+    } else {
+      res.send('Cadastrado com sucesso')
     }
   })
 });
