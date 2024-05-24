@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="./style/styles.css">
+</head>
+<body>
+
+
+<div>
+  <div class="caixa">
+          <p class="titulo">Login</p>
+          <form action="/login" method="POST">
+            <label class="text" for="username">Usuário</label>
+            <div>
+              <input class="input" type="text" id="username" name="username" placeholder="Nome do usuário" required>
+            </div>
+            <label class="text" for="password">Senha</label>
+            <div>
+              <input class="input" type="password" id="password" name="password" placeholder="Senha" required>
+            </div>
+            <button class="entrar" ype="submit">Entrar</button>
+          </form>
+          <form action="/cadastro" method="GET">
+            <p class="text">Não possui uma conta? <button type="submit" class="link"> Cadastre-se aqui</button></p>
+          </form>
+  </div>
+</div>
+</body>
+</html>
