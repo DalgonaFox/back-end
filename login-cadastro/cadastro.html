@@ -39,13 +39,38 @@
               <label for="password">Senha</label>
               <input type="password" class="form-control" id="password" name="password" placeholder="Senha" required>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+            <div class="form-group">
+              <label for="password">Confirmar Senha</label>
+              <input type="password" class="form-control" id="confirm" name="confirm" placeholder="Senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
         </form>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script> 
+
+  document.getElementById("cadastroForm").addEventListener("submit", function(event){
+    const password = document.getElementById("password").value;
+    const confirm = document.getElementById("passwordConfirm").value;
+    const tentativa =  document.getElementById("msg");
+  
+    if(!tentativa){
+      if(password !== confirm){
+        let span = document.createElement("span");
+        span.classList.add('alert');
+        span.textContent = "As senhas não coincidem";
+        span.setAttribute("id", "msg")
+        document.getElementById("confirm-group").appendChild(span);
+        event.preventDefault();
+      }
+    }
+      
+  }) 
+  </script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

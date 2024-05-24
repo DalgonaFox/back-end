@@ -57,8 +57,11 @@ app.post('/login', (req, res) => {
 });
 
 app.post('/cadastro', (req, res) => {
-  const { username, password } = req.body;
+  const username = req.body.username;
+  const password = req.body.password;
+  const confirm = req.body.confirm;
 
+  if (password === confirm) {
   db.query('INSERT INTO user (username, password) values (?, ?);', [username, password], (error) => {
     if(error){
       res.status(500).send('Erro ao cadastrar')
@@ -66,6 +69,9 @@ app.post('/cadastro', (req, res) => {
       res.send('Cadastrado com sucesso')
     }
   })
+}else{
+    res.send('Senha não coincide')
+  }
 });
 
 //Iniciando o servidor
