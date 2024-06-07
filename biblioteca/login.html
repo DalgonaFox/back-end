@@ -4,29 +4,108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <link rel="stylesheet" href="./style/styles.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/library.jpg');
+    background-size: cover; /* Para cobrir toda a tela */
+    background-position: center; /* Centralizar a imagem de fundo */
+}
+
+.caixa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    background-color: #8A3119;
+    border-radius: 20px;
+    padding-bottom: 30px;
+}
+
+.titulo {
+    font-size: 50px;
+    color: white;
+}
+
+.text {
+    color: white;
+    margin: 5px;
+}
+
+.input {
+    border-radius: 20px;
+    border: none;
+    color: black;
+    height: 30px;
+    width: 190px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.entrar {
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color: #5A0F19;
+    height: 30px;
+    width: 200px;
+}
+
+.link {
+    background-color: #8A3119;
+    text-decoration: underline;
+    color: white;
+    background-color: transparent;
+    border: none; 
+    cursor: pointer; 
+    outline: none; 
+}
+
+  </style>
 </head>
 <body>
 
 
-<div>
-  <div class="caixa">
-          <p class="titulo">Login</p>
-          <form action="/login" method="POST">
-            <label class="text" for="username">Usuário</label>
-            <div>
-              <input class="input" type="text" id="username" name="username" placeholder="Nome do usuário" required>
+    <div class="container">
+        <div class="row justify-content-center login-container">
+          <div class="col-md-4">
+            <div class="card">
+              <div class="caixa">
+                <p class="titulo">Login</p>
+                <form action="/login" method="POST">
+                  <label for="email" class="text">E-mail</label>
+                  <div class="form-group">
+                    <input type="text" class="input" id="email" name="email" placeholder="exemplo@email" required>
+                  </div>
+                  <label for="password" class="text">Senha</label>
+                  <div class="form-group">
+                    <input type="password" class="input" id="password" name="password" placeholder="Senha" required>
+                  </div>
+                  <button type="submit" class="entrar">Entrar</button>
+                </form>
+                <form action="/cadastro" method="GET">
+                  <p class="text">Não possui uma conta? <button type="submit" class="link"> Cadastre-se aqui</button></p>
+                </form>
+              </div>
             </div>
-            <label class="text" for="password">Senha</label>
-            <div>
-              <input class="input" type="password" id="password" name="password" placeholder="Senha" required>
-            </div>
-            <button class="entrar" ype="submit">Entrar</button>
-          </form>
-          <form action="/cadastro" method="GET">
-            <p class="text">Não possui uma conta? <button type="submit" class="link"> Cadastre-se aqui</button></p>
-          </form>
-  </div>
-</div>
+          </div>
+        </div>
+      </div>
+      
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

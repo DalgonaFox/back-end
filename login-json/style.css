@@ -1,0 +1,14 @@
+body{
+    background-color: black;
+    color: aliceblue;
+}
+
+.titulo-principal {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.meu-card {
+    margin-bottom: 20px;
+}
